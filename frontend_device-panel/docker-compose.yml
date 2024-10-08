@@ -1,0 +1,10 @@
+version: '3'
+services:
+  frontend:
+    build:
+      context: ./frontend_device-panel
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - CHOKIDAR_USEPOLLING=true # This ensures hot-reload works inside Docker
