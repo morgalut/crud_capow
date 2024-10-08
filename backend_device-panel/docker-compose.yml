@@ -1,0 +1,28 @@
+version: '3'
+services:
+  mongo:
+    image: mongo:5.0
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+
+  app:
+    build: .
+    container_name: device-panel-app
+    ports:
+      - "5000:5000"
+    environment:
+      MONGO_URI: mongodb://root:example@mongo:27017/Copaw?authSource=admin
+    volumes:
+      - .:/usr/src/app
+    depends_on:
+      - mongo
+    command: npm run dev
+
+volumes:
+  mongo-data:
