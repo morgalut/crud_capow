@@ -20,7 +20,7 @@ Before running this project, make sure you have:
 
 ### 1. Clone the project
 ```bash
-git clone https://github.com/yourusername/backend_device-panel.git
+git clone [https://github.com/yourusername/backend_device-panel.git](https://github.com/morgalut/crud_capow.git)
 cd backend_device-panel
 ```
 
